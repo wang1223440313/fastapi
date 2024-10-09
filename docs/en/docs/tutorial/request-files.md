@@ -6,7 +6,11 @@ You can define files to be uploaded by the client using `File`.
 
 To receive uploaded files, first install <a href="https://github.com/Kludex/python-multipart" class="external-link" target="_blank">`python-multipart`</a>.
 
-E.g. `pip install python-multipart`.
+Make sure you create a [virtual environment](../virtual-environments.md){.internal-link target=_blank}, activate it, and then install it, for example:
+
+```console
+$ pip install python-multipart
+```
 
 This is because uploaded files are sent as "form data".
 
@@ -19,7 +23,7 @@ Import `File` and `UploadFile` from `fastapi`:
 //// tab | Python 3.9+
 
 ```Python hl_lines="3"
-{!> ../../../docs_src/request_files/tutorial001_an_py39.py!}
+{!> ../../docs_src/request_files/tutorial001_an_py39.py!}
 ```
 
 ////
@@ -27,7 +31,7 @@ Import `File` and `UploadFile` from `fastapi`:
 //// tab | Python 3.8+
 
 ```Python hl_lines="1"
-{!> ../../../docs_src/request_files/tutorial001_an.py!}
+{!> ../../docs_src/request_files/tutorial001_an.py!}
 ```
 
 ////
@@ -41,7 +45,7 @@ Prefer to use the `Annotated` version if possible.
 ///
 
 ```Python hl_lines="1"
-{!> ../../../docs_src/request_files/tutorial001.py!}
+{!> ../../docs_src/request_files/tutorial001.py!}
 ```
 
 ////
@@ -53,7 +57,7 @@ Create file parameters the same way you would for `Body` or `Form`:
 //// tab | Python 3.9+
 
 ```Python hl_lines="9"
-{!> ../../../docs_src/request_files/tutorial001_an_py39.py!}
+{!> ../../docs_src/request_files/tutorial001_an_py39.py!}
 ```
 
 ////
@@ -61,7 +65,7 @@ Create file parameters the same way you would for `Body` or `Form`:
 //// tab | Python 3.8+
 
 ```Python hl_lines="8"
-{!> ../../../docs_src/request_files/tutorial001_an.py!}
+{!> ../../docs_src/request_files/tutorial001_an.py!}
 ```
 
 ////
@@ -75,7 +79,7 @@ Prefer to use the `Annotated` version if possible.
 ///
 
 ```Python hl_lines="7"
-{!> ../../../docs_src/request_files/tutorial001.py!}
+{!> ../../docs_src/request_files/tutorial001.py!}
 ```
 
 ////
@@ -109,7 +113,7 @@ Define a file parameter with a type of `UploadFile`:
 //// tab | Python 3.9+
 
 ```Python hl_lines="14"
-{!> ../../../docs_src/request_files/tutorial001_an_py39.py!}
+{!> ../../docs_src/request_files/tutorial001_an_py39.py!}
 ```
 
 ////
@@ -117,7 +121,7 @@ Define a file parameter with a type of `UploadFile`:
 //// tab | Python 3.8+
 
 ```Python hl_lines="13"
-{!> ../../../docs_src/request_files/tutorial001_an.py!}
+{!> ../../docs_src/request_files/tutorial001_an.py!}
 ```
 
 ////
@@ -131,7 +135,7 @@ Prefer to use the `Annotated` version if possible.
 ///
 
 ```Python hl_lines="12"
-{!> ../../../docs_src/request_files/tutorial001.py!}
+{!> ../../docs_src/request_files/tutorial001.py!}
 ```
 
 ////
@@ -152,7 +156,7 @@ Using `UploadFile` has several advantages over `bytes`:
 
 * `filename`: A `str` with the original file name that was uploaded (e.g. `myimage.jpg`).
 * `content_type`: A `str` with the content type (MIME type / media type) (e.g. `image/jpeg`).
-* `file`: A <a href="https://docs.python.org/3/library/tempfile.html#tempfile.SpooledTemporaryFile" class="external-link" target="_blank">`SpooledTemporaryFile`</a> (a <a href="https://docs.python.org/3/glossary.html#term-file-like-object" class="external-link" target="_blank">file-like</a> object). This is the actual Python file that you can pass directly to other functions or libraries that expect a "file-like" object.
+* `file`: A <a href="https://docs.python.org/3/library/tempfile.html#tempfile.SpooledTemporaryFile" class="external-link" target="_blank">`SpooledTemporaryFile`</a> (a <a href="https://docs.python.org/3/glossary.html#term-file-like-object" class="external-link" target="_blank">file-like</a> object). This is the actual Python file object that you can pass directly to other functions or libraries that expect a "file-like" object.
 
 `UploadFile` has the following `async` methods. They all call the corresponding file methods underneath (using the internal `SpooledTemporaryFile`).
 
@@ -220,7 +224,7 @@ You can make a file optional by using standard type annotations and setting a de
 //// tab | Python 3.10+
 
 ```Python hl_lines="9  17"
-{!> ../../../docs_src/request_files/tutorial001_02_an_py310.py!}
+{!> ../../docs_src/request_files/tutorial001_02_an_py310.py!}
 ```
 
 ////
@@ -228,7 +232,7 @@ You can make a file optional by using standard type annotations and setting a de
 //// tab | Python 3.9+
 
 ```Python hl_lines="9  17"
-{!> ../../../docs_src/request_files/tutorial001_02_an_py39.py!}
+{!> ../../docs_src/request_files/tutorial001_02_an_py39.py!}
 ```
 
 ////
@@ -236,7 +240,7 @@ You can make a file optional by using standard type annotations and setting a de
 //// tab | Python 3.8+
 
 ```Python hl_lines="10  18"
-{!> ../../../docs_src/request_files/tutorial001_02_an.py!}
+{!> ../../docs_src/request_files/tutorial001_02_an.py!}
 ```
 
 ////
@@ -250,7 +254,7 @@ Prefer to use the `Annotated` version if possible.
 ///
 
 ```Python hl_lines="7  15"
-{!> ../../../docs_src/request_files/tutorial001_02_py310.py!}
+{!> ../../docs_src/request_files/tutorial001_02_py310.py!}
 ```
 
 ////
@@ -264,7 +268,7 @@ Prefer to use the `Annotated` version if possible.
 ///
 
 ```Python hl_lines="9  17"
-{!> ../../../docs_src/request_files/tutorial001_02.py!}
+{!> ../../docs_src/request_files/tutorial001_02.py!}
 ```
 
 ////
@@ -276,7 +280,7 @@ You can also use `File()` with `UploadFile`, for example, to set additional meta
 //// tab | Python 3.9+
 
 ```Python hl_lines="9  15"
-{!> ../../../docs_src/request_files/tutorial001_03_an_py39.py!}
+{!> ../../docs_src/request_files/tutorial001_03_an_py39.py!}
 ```
 
 ////
@@ -284,7 +288,7 @@ You can also use `File()` with `UploadFile`, for example, to set additional meta
 //// tab | Python 3.8+
 
 ```Python hl_lines="8  14"
-{!> ../../../docs_src/request_files/tutorial001_03_an.py!}
+{!> ../../docs_src/request_files/tutorial001_03_an.py!}
 ```
 
 ////
@@ -298,7 +302,7 @@ Prefer to use the `Annotated` version if possible.
 ///
 
 ```Python hl_lines="7  13"
-{!> ../../../docs_src/request_files/tutorial001_03.py!}
+{!> ../../docs_src/request_files/tutorial001_03.py!}
 ```
 
 ////
@@ -314,7 +318,7 @@ To use that, declare a list of `bytes` or `UploadFile`:
 //// tab | Python 3.9+
 
 ```Python hl_lines="10  15"
-{!> ../../../docs_src/request_files/tutorial002_an_py39.py!}
+{!> ../../docs_src/request_files/tutorial002_an_py39.py!}
 ```
 
 ////
@@ -322,7 +326,7 @@ To use that, declare a list of `bytes` or `UploadFile`:
 //// tab | Python 3.8+
 
 ```Python hl_lines="11  16"
-{!> ../../../docs_src/request_files/tutorial002_an.py!}
+{!> ../../docs_src/request_files/tutorial002_an.py!}
 ```
 
 ////
@@ -336,7 +340,7 @@ Prefer to use the `Annotated` version if possible.
 ///
 
 ```Python hl_lines="8  13"
-{!> ../../../docs_src/request_files/tutorial002_py39.py!}
+{!> ../../docs_src/request_files/tutorial002_py39.py!}
 ```
 
 ////
@@ -350,7 +354,7 @@ Prefer to use the `Annotated` version if possible.
 ///
 
 ```Python hl_lines="10  15"
-{!> ../../../docs_src/request_files/tutorial002.py!}
+{!> ../../docs_src/request_files/tutorial002.py!}
 ```
 
 ////
@@ -372,7 +376,7 @@ And the same way as before, you can use `File()` to set additional parameters, e
 //// tab | Python 3.9+
 
 ```Python hl_lines="11  18-20"
-{!> ../../../docs_src/request_files/tutorial003_an_py39.py!}
+{!> ../../docs_src/request_files/tutorial003_an_py39.py!}
 ```
 
 ////
@@ -380,7 +384,7 @@ And the same way as before, you can use `File()` to set additional parameters, e
 //// tab | Python 3.8+
 
 ```Python hl_lines="12  19-21"
-{!> ../../../docs_src/request_files/tutorial003_an.py!}
+{!> ../../docs_src/request_files/tutorial003_an.py!}
 ```
 
 ////
@@ -394,7 +398,7 @@ Prefer to use the `Annotated` version if possible.
 ///
 
 ```Python hl_lines="9  16"
-{!> ../../../docs_src/request_files/tutorial003_py39.py!}
+{!> ../../docs_src/request_files/tutorial003_py39.py!}
 ```
 
 ////
@@ -408,7 +412,7 @@ Prefer to use the `Annotated` version if possible.
 ///
 
 ```Python hl_lines="11  18"
-{!> ../../../docs_src/request_files/tutorial003.py!}
+{!> ../../docs_src/request_files/tutorial003.py!}
 ```
 
 ////
